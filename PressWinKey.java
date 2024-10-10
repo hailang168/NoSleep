@@ -17,7 +17,10 @@ public class PressWinKey {
             System.out.println("---Press key ['CTRL + C'] to stop it !---");
 
             // timer minitues
-            int min = 1;
+            long min = 4;
+            if (args.length > 0 && args[0].length() > 0) {
+                min = Long.parseLong(args[0]);
+            } 
             while (true) {
                 // 1 minutes
                 Thread.sleep(min * 60 * 1000);
