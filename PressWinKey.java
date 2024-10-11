@@ -43,7 +43,7 @@ public class PressWinKey {
             // Windows key press
             robot.keyPress(KeyEvent.VK_WINDOWS);
             robot.keyRelease(KeyEvent.VK_WINDOWS);
-            
+            Thread.sleep(1000);
             // ALT + TAB key
             robot.keyPress(KeyEvent.VK_ALT);
             robot.keyPress(KeyEvent.VK_TAB);
