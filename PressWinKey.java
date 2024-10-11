@@ -1,3 +1,4 @@
+
 // import java.io.IOException;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -6,12 +7,16 @@ import java.awt.event.InputEvent;
 public class PressWinKey {
     public static void main(String[] args) {
         // Teams path
-        // String teamsPath = "C:\\Users\\admin_multi\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe";
+        // String teamsPath =
+        // "C:\\Users\\admin_multi\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe";
 
         // processBuilder
         // ProcessBuilder processBuilder = new ProcessBuilder(teamsPath);
         try {
-            // Start Teams 
+            // AWT Robot
+            Robot robot = new Robot();
+
+            // Start Teams
             // processBuilder.start();
             System.out.println("Robot is running !");
             System.out.println("---Press key ['CTRL + C'] to stop it !---");
@@ -20,26 +25,24 @@ public class PressWinKey {
             long min = 4;
             if (args.length > 0 && args[0].length() > 0) {
                 min = Long.parseLong(args[0]);
-            } 
+            }
             while (true) {
                 // 1 minutes
                 Thread.sleep(min * 60 * 1000);
 
                 // To Front and click
-                bringWindowToFront();
+                bringWindowToFront(robot);
             }
-        } catch ( InterruptedException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             System.out.println("---Robot is on error.---");
         }
     }
 
     // Bring app to front and click
-    public static void bringWindowToFront() {
+    public static void bringWindowToFront(Robot robot) {
         try {
-            // AWT Robot
-            Robot robot = new Robot();
-            
+
             // Windows key press
             robot.keyPress(KeyEvent.VK_WINDOWS);
             robot.keyRelease(KeyEvent.VK_WINDOWS);
@@ -51,7 +54,7 @@ public class PressWinKey {
             robot.keyRelease(KeyEvent.VK_ALT);
 
             // mous move + click
-            // robot.mouseMove(1090, 65); 
+            // robot.mouseMove(1090, 65);
             // robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             // robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
@@ -60,22 +63,22 @@ public class PressWinKey {
             // robot.keyPress(KeyEvent.VK_TAB);
             // robot.keyRelease(KeyEvent.VK_TAB);
             // robot.keyRelease(KeyEvent.VK_ALT);
-            
+
             // // Windows + Up Arrow
             // robot.keyPress(KeyEvent.VK_WINDOWS);
             // robot.keyPress(KeyEvent.VK_UP);
             // robot.keyRelease(KeyEvent.VK_UP);
             // robot.keyRelease(KeyEvent.VK_WINDOWS);
-            
-            // Thread.sleep(2000); 
-            
+
+            // Thread.sleep(2000);
+
             // // Windows + Down Arrow
             // robot.keyPress(KeyEvent.VK_WINDOWS);
             // robot.keyPress(KeyEvent.VK_DOWN);
             // robot.keyRelease(KeyEvent.VK_DOWN);
             // robot.keyRelease(KeyEvent.VK_WINDOWS);
 
-        } catch (Exception  e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
