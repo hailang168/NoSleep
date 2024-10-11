@@ -3,28 +3,34 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 PROMPT $
 cls
 ECHO ####################################################################
-ECHO # æ©Ÿèƒ½èª¬æ˜  :æŒ‡å®šæ™‚é–“ï¼ˆåˆ†å˜ä½ï¼‰ã§Windowsã‚­ãƒ¼ã‚’è‡ªå‹•æŠ¼ä¸‹ã—ã¾ã™ã€‚     #
-ECHO # èµ·å‹•æ–¹æ³•  :PressWinKey.bat                                       #
-ECHO # è¨­å®šæ™‚é–“  : n  åˆ†å˜ä½  â€»å…¥åŠ›ã—ãªã„ã®å ´åˆã¯åˆæœŸå€¤[4] åˆ†          #
-ECHO # åœæ­¢æ–¹æ³•    :[CTRL + C ] ã‚­ãƒ¼åŒæ™‚ã«æŠ¼ä¸‹ã™ã‚‹ã¨ã€å‡¦ç†çµ‚äº†ã™ã‚‹ã€‚    #
+ECHO # ‹@”\à–¾  :w’èŠÔ‚²‚Æ‚ÅWindowsƒL[‚ğŒJ‚è•Ô‚µ©“®‰Ÿ‰º‚·‚éB     #
+ECHO # ‹N“®•û–@  :PressWinKey.bat ‚ğƒ_ƒuƒ‹ƒNƒŠƒbƒN‚·‚éB                #
+ECHO # İ’èŠÔ  :•ª’PˆÊ (®”Œ^F”ñ•K{)  ---‰Šú’l[4]•ª---            #
+ECHO # ’â~•û–@  :[CTRL + C ] ƒL[“¯‚É‰Ÿ‰º‚·‚é‚ÆAˆ—I—¹‚·‚éB      #
 ECHO ####################################################################
 
-REM åˆæœŸå‡¦ç†
+REM ‰Šúˆ—
 SET BASE_DIR=%~dp0
-SET JAVA_EXE=%BASE_DIR%\JDK\bin\java
+REM SET JAVA_EXE=%BASE_DIR%\JDK\bin\java
 
 ECHO.
-SET /P MIN=è¨­å®šç¹°ã‚Šè¿”ã—æ™‚é–“ï¼ˆåˆ†ï¼‰:
+ECHO -----ŒJ‚è•Ô‚µˆ—‚Ì’PˆÊŠÔ‚ğ“ü—ÍiÈ—ª‰Âj-----
+SET /P MIN=-----İ’èŠÔi•ªj:
 
-REM javaã‚³ãƒãƒ³ãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹
-ECHO %DATE% %TIME% å‡¦ç†é–‹å§‹
+REM javaƒRƒ}ƒ“ƒh‚ğÀs‚·‚é
+ECHO %DATE% %TIME% ˆ—ŠJn
 ECHO\
 
-#%JAVA_EXE%  %BASE_DIR%PressWinKey.java %MIN%
-JAVA %BASE_DIR%PressWinKey.java %MIN%
+echo %PATH% | find "jdk" >nul
+if %errorlevel% neq 0 (
+	echo ¦ ƒVƒXƒeƒ€ã‚ÅJava‚ªƒCƒ“ƒXƒg[ƒ‹‚µ‚Ä‚¢‚È‚¢‚½‚ßAˆ—I—¹‚µ‚Ü‚·B
+REM	%JAVA_EXE%  %BASE_DIR%PressWinKey.java %MIN%
+) else (
+	JAVA %BASE_DIR%PressWinKey.java %MIN%
+)
 
-
-ECHO %DATE% %TIME% å‡¦ç†çµ‚äº†
+ECHO\
+ECHO %DATE% %TIME% ˆ—I—¹
 ECHO\
 
-pause
+PAUSE

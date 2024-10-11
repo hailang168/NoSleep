@@ -1,4 +1,4 @@
-import java.io.IOException;
+// import java.io.IOException;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
@@ -6,10 +6,10 @@ import java.awt.event.InputEvent;
 public class PressWinKey {
     public static void main(String[] args) {
         // Teams path
-        String teamsPath = "C:\\Users\\admin_multi\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe";
+        // String teamsPath = "C:\\Users\\admin_multi\\AppData\\Local\\Microsoft\\Teams\\current\\Teams.exe";
 
         // processBuilder
-        ProcessBuilder processBuilder = new ProcessBuilder(teamsPath);
+        // ProcessBuilder processBuilder = new ProcessBuilder(teamsPath);
         try {
             // Start Teams 
             // processBuilder.start();
@@ -39,6 +39,11 @@ public class PressWinKey {
         try {
             // AWT Robot
             Robot robot = new Robot();
+            
+            // Windows key press
+            robot.keyPress(KeyEvent.VK_WINDOWS);
+            robot.keyRelease(KeyEvent.VK_WINDOWS);
+            
             // ALT + TAB key
             robot.keyPress(KeyEvent.VK_ALT);
             robot.keyPress(KeyEvent.VK_TAB);
@@ -50,11 +55,27 @@ public class PressWinKey {
             // robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             // robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 
-             // Windows key press
-             robot.keyPress(KeyEvent.VK_WINDOWS);
-             robot.keyRelease(KeyEvent.VK_WINDOWS);
+            // // Alt + Tab
+            // robot.keyPress(KeyEvent.VK_ALT);
+            // robot.keyPress(KeyEvent.VK_TAB);
+            // robot.keyRelease(KeyEvent.VK_TAB);
+            // robot.keyRelease(KeyEvent.VK_ALT);
+            
+            // // Windows + Up Arrow
+            // robot.keyPress(KeyEvent.VK_WINDOWS);
+            // robot.keyPress(KeyEvent.VK_UP);
+            // robot.keyRelease(KeyEvent.VK_UP);
+            // robot.keyRelease(KeyEvent.VK_WINDOWS);
+            
+            // Thread.sleep(2000); 
+            
+            // // Windows + Down Arrow
+            // robot.keyPress(KeyEvent.VK_WINDOWS);
+            // robot.keyPress(KeyEvent.VK_DOWN);
+            // robot.keyRelease(KeyEvent.VK_DOWN);
+            // robot.keyRelease(KeyEvent.VK_WINDOWS);
 
-        } catch (AWTException e) {
+        } catch (Exception  e) {
             e.printStackTrace();
         }
     }
