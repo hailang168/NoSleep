@@ -17,6 +17,11 @@ ECHO.
 ECHO -----繰り返し処理の単位時間を入力（省略可）-----
 SET /P MIN=-----設定時間（分）:
 
+REM 未入力の場合、初期値「4」に設定
+IF NOT DEFINED MIN (
+ SET MIN=4
+)
+
 REM 入力値が小数点以下切り捨て
 SET /a MIN=%MIN%*1000/1000
 IF %MIN% EQU 0 (
@@ -24,7 +29,7 @@ IF %MIN% EQU 0 (
 )
 
 REM javaコマンドを実行する
-ECHO %DATE% %TIME% 処理開始 [%MIN%]分ごとに繰り返す
+ECHO %DATE% %TIME% 処理開始 「%MIN%」分ごとに繰り返す
 ECHO\
 
 ECHO %PATH% | find "jdk" >nul
